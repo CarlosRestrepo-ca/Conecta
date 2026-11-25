@@ -1,0 +1,95 @@
+/* La estructura adicional no cambia el flujo de las demás vistas ni el de móvil. */
+#homeLayout, #homeFeedColumn { display: contents; }
+#homeSidebar { display: none; }
+
+@media (min-width: 1000px) {
+  /* Solo se restringe el documento cuando Inicio está realmente visible. */
+  html:has(#homeLayout #postSection:not(.hidden)):has(#homeLayout #homeSection:not(.hidden)),
+  body:has(#homeLayout #postSection:not(.hidden)):has(#homeLayout #homeSection:not(.hidden)) {
+    height: 100%;
+    overflow: hidden !important;
+  }
+
+  #app:has(#homeLayout #postSection:not(.hidden)):has(#homeLayout #homeSection:not(.hidden)) {
+    height: 100dvh !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  #homeLayout:has(#postSection:not(.hidden)):has(#homeSection:not(.hidden)) {
+    display: grid;
+    flex: 1 1 0;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    width: min(calc(100% - 2 * var(--desktop-gutter)), 1240px);
+    min-height: 0;
+    margin: 0 auto;
+  }
+
+  #homeLayout:has(#postSection:not(.hidden)):has(#homeSection:not(.hidden)) #homeFeedColumn,
+  #homeLayout:has(#postSection:not(.hidden)):has(#homeSection:not(.hidden)) #homeSidebar {
+    min-width: 0;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #homeLayout:has(#postSection:not(.hidden)):has(#homeSection:not(.hidden)) #homeFeedColumn {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #homeLayout:has(#postSection:not(.hidden)):has(#homeSection:not(.hidden)) #homeSidebar {
+    position: static;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: start;
+    gap: 18px;
+    margin: 0;
+    padding: 18px 10px 24px;
+  }
+
+  #homeFeedColumn #postSection,
+  #homeFeedColumn #homeSection {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+  }
+  #homeFeedColumn #postSection { display: block; padding: 18px 10px 0; }
+  #homeFeedColumn #homeSection { display: block; padding: 0 10px 24px; }
+  #homeFeedColumn #postsContainer { width: 100%; max-width: none; padding: 0 0 12px; }
+  #homeFeedColumn #postForm,
+  #homeFeedColumn #pollComposer,
+  #homeFeedColumn #postImagePreviewContainer { width: 100%; max-width: none; margin-inline: 0; }
+
+  #homeSidebar #academicPortalsPreview {
+    grid-column: auto;
+    grid-row: auto;
+    align-self: auto;
+    min-height: 0;
+    margin: 0;
+    overflow: visible;
+  }
+  #homeSidebar #friendSuggestions { min-width: 0; }
+  #homeSidebar .suggestions-list { max-height: none; overflow: visible; padding-right: 0; }
+
+  #homeFeedColumn::-webkit-scrollbar, #homeSidebar::-webkit-scrollbar { width: 7px; }
+  #homeFeedColumn::-webkit-scrollbar-track, #homeSidebar::-webkit-scrollbar-track { background: transparent; }
+  #homeFeedColumn::-webkit-scrollbar-thumb, #homeSidebar::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: rgba(100, 125, 160, .42);
+    background-clip: padding-box;
+  }
+  [data-theme="dark"] #homeFeedColumn, [data-theme="dark"] #homeSidebar {
+    scrollbar-color: rgba(174, 195, 226, .42) transparent;
+  }
+  [data-theme="dark"] #homeFeedColumn::-webkit-scrollbar-thumb,
+  [data-theme="dark"] #homeSidebar::-webkit-scrollbar-thumb {
+    background: rgba(174, 195, 226, .4);
+    background-clip: padding-box;
+  }
+}

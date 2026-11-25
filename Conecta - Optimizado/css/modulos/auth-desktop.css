@@ -1,0 +1,88 @@
+    /* El desplazamiento principal pertenece a la página, no a un panel interno. */
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #add8e6;
+      font-family: Arial, sans-serif;
+    }
+
+        #app {
+      min-height: 100dvh;
+      height: auto;
+      overflow: visible;
+    }
+
+        /* Panel de acceso vertical, centrado y de ancho limitado en computadoras. */
+        @media (min-width: 721px) {
+            #app:has(#authSection:not(.hidden)) #desktopSearch,
+      #app:has(#registerFullScreen:not(.hidden)) #desktopSearch {
+        display: none !important;
+      }
+
+      #registerFullScreen:not(.hidden) {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: min(640px, calc(100vw - 48px)) !important;
+        max-width: 640px !important;
+        max-height: calc(100dvh - 32px) !important;
+        margin: 0 !important;
+        overflow-y: auto !important;
+      }
+
+            #authSection {
+        flex: 0 0 auto !important;
+        align-self: center !important;
+        width: min(640px, calc(100vw - 48px)) !important;
+        max-width: 640px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: auto !important;
+        padding: 22px 40px !important;
+        border: 1px solid rgba(33, 118, 255, .16);
+        border-radius: 20px;
+        box-shadow: 0 16px 42px rgba(33, 78, 145, .18);
+      }
+
+      #authSection h2 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      #loginForm {
+        margin: 0 0 6px;
+      }
+
+      #loginError {
+        min-height: 0;
+        margin: 3px 0 0;
+        line-height: 1.2;
+      }
+
+      #loginForm label {
+        display: block;
+        margin-top: 8px;
+        color: #354762;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      #loginForm input {
+        min-height: 38px;
+        padding: 7px 11px;
+        font-size: 14px;
+      }
+
+      #loginForm button[type="submit"] {
+        margin-top: 10px;
+        padding: 9px 14px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+    }

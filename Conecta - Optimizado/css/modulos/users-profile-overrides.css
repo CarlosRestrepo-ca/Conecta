@@ -1,0 +1,110 @@
+/* Ajustes responsivos de la lista de usuarios y acciones del perfil público. */
+#usersSection {
+  min-width: 0;
+}
+#users li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+#users .user-list-identity {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  gap: 3px;
+}
+#users li .username {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding-left: 18px;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  text-decoration: none;
+}
+#users .user-name-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#users .user-list-handle {
+  padding-left: 18px;
+  color: #72819a;
+  font-size: .8rem;
+  overflow-wrap: anywhere;
+}
+#users li .chatButton,
+#users li .friendBtn,
+#users li .acceptFriendBtn {
+  flex: 0 0 auto;
+  min-width: 108px !important;
+  max-width: 100%;
+  min-height: 38px;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  white-space: normal;
+  line-height: 1.2;
+}
+#searchUser {
+  display: block;
+  box-sizing: border-box;
+}
+#userInfoSection #userInfoActions {
+  align-items: center;
+}
+#userInfoSection #userInfoActions button {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 520px) {
+  #usersSection {
+    overflow-x: hidden !important;
+  }
+  #searchUser {
+    width: 100% !important;
+  }
+  #users li {
+    align-items: center;
+    gap: 8px;
+    padding: 10px !important;
+  }
+  #users li .username,
+  #users .user-list-handle {
+    padding-left: 16px;
+  }
+  #users li .chatButton,
+  #users li .friendBtn,
+  #users li .acceptFriendBtn {
+    min-width: 86px !important;
+    padding-inline: 8px !important;
+    font-size: .78rem !important;
+  }
+  #userInfoSection #userInfoActions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+  #userInfoSection #userInfoActions button {
+    min-width: 0;
+    padding-inline: 9px !important;
+  }
+}
+@media (max-width: 350px) {
+  #users li {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  #users li .chatButton,
+  #users li .friendBtn,
+  #users li .acceptFriendBtn {
+    align-self: flex-end;
+  }
+}

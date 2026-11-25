@@ -1,0 +1,307 @@
+/* Personas online: tarjetas tipo red social y burbujas de imagen ajustadas a su contenido. */
+#usersInMessages > button:first-child {
+  resize: none !important;
+}
+
+#usersInMessages button.online-person-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 12px !important;
+  width: 100% !important;
+  min-height: 66px !important;
+  margin: 0 0 8px !important;
+  padding: 10px 14px !important;
+  border: 1px solid #e1eaf6 !important;
+  border-radius: 16px !important;
+  background: #ffffff !important;
+  color: #17233c !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px rgba(33,118,255,.07) !important;
+  cursor: pointer !important;
+  resize: none !important;
+  overflow: hidden !important;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+}
+
+#usersInMessages button.online-person-card:hover,
+#usersInMessages button.online-person-card:focus-visible {
+  background: #f0f6ff !important;
+  border-color: rgba(33,118,255,.28) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 22px rgba(33,118,255,.12) !important;
+  outline: none;
+}
+
+#usersInMessages .online-person-card .online-person-avatar-wrap {
+  position: relative !important;
+  flex: 0 0 46px !important;
+  width: 46px !important;
+  height: 46px !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#usersInMessages .online-person-card .online-person-avatar {
+  display: block !important;
+  width: 46px !important;
+  height: 46px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  box-shadow: 0 0 0 1px #dbe6f5 !important;
+}
+
+#usersInMessages .online-person-card .online-indicator {
+  position: absolute !important;
+  top: auto !important;
+  left: auto !important;
+  right: 0 !important;
+  bottom: 1px !important;
+  transform: none !important;
+  width: 13px !important;
+  height: 13px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+}
+
+#usersInMessages .online-person-card > span:not(.online-person-avatar-wrap):not(.badge) {
+  position: static !important;
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  color: #17233c !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+  line-height: 1.25 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+}
+
+#usersInMessages button.online-back-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: 44px !important;
+  margin: 14px 0 0 !important;
+  padding: 10px 14px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #2176ff, #5a9bff) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  resize: none !important;
+  box-shadow: 0 8px 18px rgba(33,118,255,.2) !important;
+}
+
+#usersInMessages button.online-back-button:hover {
+  background: linear-gradient(135deg, #125ddd, #3d83f2) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Burbuja de imagen: se ajusta al ancho real de la foto, sin espacio sobrante. */
+.message.has-image {
+  width: fit-content !important;
+  max-width: min(85%, 320px) !important;
+  padding: 6px !important;
+  overflow: hidden;
+}
+
+.message.has-image img {
+  display: block !important;
+  min-width: 120px;
+  min-height: 90px;
+  background: #dfe8f5;
+  width: auto !important;
+  max-width: min(100%, 220px) !important;
+  height: auto !important;
+  max-height: 220px !important;
+  margin: 0 !important;
+  border-radius: 14px !important;
+  object-fit: contain;
+}
+
+.message .chat-image-error {
+  min-width: 140px;
+  padding: 18px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.06);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Miniatura de chat: ancho explícito (no porcentual) para que la burbuja no colapse
+   en una franja, y alto automático para conservar la proporción original de la foto. */
+.message.has-image img {
+  box-sizing: border-box !important;
+  display: block !important;
+  flex: none !important;
+  width: min(220px, 62vw) !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: 280px !important;
+  margin: 6px 0 0 !important;
+  border-radius: 14px !important;
+  object-fit: cover !important;
+  background: #dfe8f5;
+}
+
+/* Imagen de chat en miniatura: la burbuja toma el tamaño de la foto y la imagen conserva su proporción sin recortes. */
+.message.has-image {
+  display: flex !important;
+  flex-direction: column !important;
+  width: fit-content !important;
+  max-width: min(85%, 240px) !important;
+  padding: 6px !important;
+  overflow: hidden !important;
+}
+
+.message.has-image img {
+  display: block !important;
+  flex: 0 0 auto !important;
+  box-sizing: border-box !important;
+  width: min(200px, 60vw) !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent;
+  cursor: pointer;
+}
+
+.message.has-image > div:not(.read-timestamp) {
+  align-self: stretch;
+}
+
+.message.has-image > div {
+  padding: 4px 8px 2px !important;
+  margin-top: 0 !important;
+}
+
+.message.has-image .read-timestamp {
+  padding: 0 8px 4px !important;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] #usersInMessages button.online-person-card {
+  background: #182a48 !important;
+  border-color: #40577e !important;
+  color: #f2f6ff !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2) !important;
+}
+
+[data-theme="dark"] #usersInMessages button.online-person-card:hover,
+[data-theme="dark"] #usersInMessages button.online-person-card:focus-visible {
+  background: #203759 !important;
+  border-color: #5475a5 !important;
+}
+
+[data-theme="dark"] #usersInMessages .online-person-card .online-person-avatar {
+  border-color: #182a48 !important;
+  box-shadow: 0 0 0 1px #40577e !important;
+}
+
+[data-theme="dark"] #usersInMessages .online-person-card .online-indicator {
+  border-color: #182a48 !important;
+}
+
+[data-theme="dark"] #usersInMessages .online-person-card > span:not(.online-person-avatar-wrap):not(.badge) {
+  color: #f2f6ff !important;
+}
+
+/* Móvil */
+@media (max-width: 720px) {
+  #usersInMessages button.online-person-card {
+    min-height: 60px !important;
+    padding: 9px 12px !important;
+    gap: 10px !important;
+  }
+
+  #usersInMessages .online-person-card .online-person-avatar-wrap,
+  #usersInMessages .online-person-card .online-person-avatar {
+    width: 42px !important;
+    height: 42px !important;
+    flex-basis: 42px !important;
+  }
+
+  .message.has-image {
+    max-width: 88% !important;
+  }
+}
+
+/* Imagen del chat (clase .chat-photo-thumb): miniatura completa, proporción original,
+   sin aplastarse ni recortarse, y burbuja ajustada exactamente a la foto. */
+#chatMessages .message.has-image {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: fit-content !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-width: min(85%, 240px) !important;
+  padding: 6px !important;
+  overflow: hidden !important;
+}
+
+#chatMessages .message.has-image img.chat-photo-thumb {
+  display: block !important;
+  float: none !important;
+  flex: 0 0 auto !important;
+  box-sizing: border-box !important;
+  width: min(200px, 60vw) !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  cursor: pointer !important;
+}
+
+@media (max-width: 720px) {
+  #chatMessages .message.has-image img.chat-photo-thumb {
+    width: min(180px, 58vw) !important;
+  }
+}
+
+/* Evita que el contenedor flex del chat aplaste la burbuja y la imagen en una franja.
+   La burbuja y la foto conservan su altura natural dentro de #chatMessages. */
+#chatMessages > .message,
+#chatMessages .message.has-image {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  min-height: min-content !important;
+}
+
+#chatMessages .message.has-image > img.chat-photo-thumb,
+#chatMessages .message.has-image img.chat-photo-thumb {
+  flex-shrink: 0 !important;
+  height: auto !important;
+  min-height: 120px !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+}

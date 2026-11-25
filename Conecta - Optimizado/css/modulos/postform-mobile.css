@@ -1,0 +1,28 @@
+/* Ajustes para móvil del formulario de publicaciones (movido desde index.html sin cambios de reglas). */
+@media (max-width: 480px) {
+  #postForm {
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+  }
+  #postImageBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    padding: 0;
+    line-height: 40px;
+  }
+  #postSubmitBtn {
+    min-width: 70px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  #postInput {
+    flex-grow: 1;
+    min-height: 40px;
+    font-size: 14px;
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+}

@@ -1,0 +1,336 @@
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+}
+
+#authSection img {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+ /* Fondo de la pantalla de carga: muestra el logotipo institucional mientras se inicia la aplicación. */
+#splashScreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url(https://uploads.onecompiler.io/448k9pkeq/448kbzjkm/Logo_Oficial_Unicartagena.png);
+  background-repeat: no-repeat;
+  background-position: center 84%;
+  background-size: 85% auto;
+  filter: blur(0px);
+  z-index: 9999;
+}
+/* Capa semitransparente que oscurece el fondo y centra el indicador de carga. */
+#splashOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+#splashLogo {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  top: -40px;
+  background: url(https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/LOgo%20-%20PNG.png) no-repeat center center;
+  background-size: contain;
+  animation: logoMoveGlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px #2176FF);
+  margin-bottom: 15px;
+}
+@keyframes logoMoveGlow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    filter: drop-shadow(0 0 6px #2176FF);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-15px) rotate(10deg);
+    filter: drop-shadow(0 0 20px #64b5f6);
+    opacity: 0.9;
+  }
+}
+/* Contenedor del texto y de la animación que indican el progreso de carga. */
+#loadingContainer {
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 280px;
+  max-width: 90vw;
+}
+/* Marco que limita el recorrido de la figura animada durante la carga. */
+#runnerContainer {
+  position: relative;
+  width: 270px;
+  height: 50px;
+  background: rgba(255 255 255 / 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid #2176FF;
+}
+/* Línea que representa el recorrido de la figura animada. */
+#runnerTrack {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  height: 6px;
+  background: #2176ff44;
+  border-radius: 4px;
+}
+/* Figura decorativa que se desplaza para indicar que la aplicación está cargando. */
+#runner {
+  position: absolute;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background: url("https://cdn-icons-png.flaticon.com/512/892/892781.png") no-repeat center center;
+  background-size: contain;
+  /* Anima la figura mediante pasos sucesivos del recurso gráfico. */
+  animation: runLegs 1s steps(6) infinite;
+  /* Inicia el movimiento desde el borde izquierdo del recorrido. */
+  left: 0px;
+  will-change: left;
+}
+@keyframes runLegs {
+  0%   { background-position-x: 0; }
+  90% { background-position-x: -240px; } /* Seis cuadros de animación de 40 píxeles cada uno. */
+}
+/* Estilo del texto que acompaña al indicador de carga. */
+#loadingText {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Los botones de navegación muestran sus iconos como imágenes de fondo. */
+.navBtn {
+  padding: 8px 14px;
+  font-size: 0; /* Oculta cualquier texto visual sin quitar el nombre accesible del botón. */
+  position: relative;
+}
+
+#btnHome {
+  width: 100px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/icono%20Inicio.png") no-repeat center center;
+  background-size: contain;
+}
+#btnNotifications {
+  width: 100px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/icono%20Notificaci%C3%B3n.png") no-repeat center center;
+  background-size: contain;
+}
+#btnUsers {
+  width: 80px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/icono%20Personas%20-%20%20Usuarios.png") no-repeat center center;
+  background-size: contain;
+}
+#btnProfile {
+  width: 80px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/448k9pkeq/448kbzjkm/icono%20-%20Perfil.png") no-repeat center center;
+  background-size: contain;
+}
+#btnMessages {
+  width: 80px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/icono%20-%20Mensajes.png") no-repeat center center;
+  background-size: contain;
+}
+#btnSettings {
+  width: 80px;
+  height: 60px;
+  background: url("https://uploads.onecompiler.io/44amdv2fa/44amdvnzz/Icono%20-%20Configuraci%C3%B3n.png") no-repeat center center;
+  background-size: contain;
+}
+
+/* Evita que el texto o los gráficos internos interfieran con los iconos de navegación. */
+.navBtn span,
+.navBtn svg {
+  display: none;
+}
+
+/* Distribución inicial del formulario para redactar publicaciones y adjuntar medios. */
+#postForm {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+/* En móvil, poner textarea arriba y botones abajo */
+@media (max-width: 480px) {
+  #postForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #postInput {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+  }
+  #postForm > button,  /* botón publicar */
+  #postImageBtn {      /* icono de imagen */
+    width: auto;
+  }
+  /* Contenedor de botones para que estén en línea abajo */
+  #postButtonsContainer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+}
+
+#postImageBtn {
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  padding: 0 6px 0 6px;
+  height: 40px;
+  line-height: 40px;
+  color: #2176FF;
+  border-radius: 6px;
+  flex-shrink: 0;
+  left: -5px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+#postImageBtn:hover {
+  background-color: #2176FF22;
+}
+
+#postInput {
+  flex-grow: 1;
+  min-height: 40px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Oculta el selector nativo; se abre desde el botón personalizado para adjuntar medios. */
+#postImageInput {
+  display: none;
+}
+
+/* Marco de vista previa para revisar la imagen o el video antes de publicarlo. */
+#postImagePreviewContainer {
+  display: none;
+  position: relative;
+  max-width: 100%;
+  margin-top: 8px;
+  border: 1px solid #2176FF;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 320px; /* Limita la altura de la vista previa en pantallas grandes. */
+}
+
+#postImagePreview {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+#uploadPostImageBtn:hover {
+  background: #0f59d4;
+}
+
+#uploadPostImageBtn {
+  display: none;
+  position: absolute;  /* posición fija dentro del contenedor */
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background: #2176FF;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+  z-index: 10;
+  width: auto;
+  min-width: 120px;
+}
+
+@media (max-width: 480px) {
+  #postImagePreviewContainer {
+    max-height: 480px;
+  }
+  #uploadPostImageBtn {
+    position: fixed; /* o absoluto para mantener visible */
+    bottom: 12px;    /* distancia desde abajo de la pantalla */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 280px;
+    font-size: 16px;
+    z-index: 10000;  /* asegurarse que quede encima */
+  }
+}
+
+/* Ajustes para que el formulario y sus controles se adapten a pantallas pequeñas. */
+@media (max-width: 480px) {
+  #postForm {
+    gap: 2px;
+  }
+  #postImageBtn {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+    padding: 0;
+    line-height: 38px;
+  }
+  #postInput {
+    font-size: 13px;
+    min-height: 38px;
+    border-radius: 5px;
+  }
+  #postForm button[type="submit"] {
+    padding: 8px 14px;
+    font-size: 13px;
+    min-width: 75px;
+    border-radius: 5px;
+  }
+}
